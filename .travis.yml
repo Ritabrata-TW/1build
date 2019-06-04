@@ -50,3 +50,5 @@ deploy:
     branch: test-deployment
   server: https://test.pypi.org/legacy/
   skip_existing: true
+  skip_cleanup: true
+  
