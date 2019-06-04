@@ -38,5 +38,15 @@ install:
 script:
   - pytest -v --cov-report term --cov=tests/
 after_success:
-    - codecov
-
+  - codecov
+deploy:
+  provider: pypi
+  user: langote.gopinath
+  password:
+    secure: D4qq+W7n/R+yngbov3ULlgxEJbg+RKCvRawTSSOMLvOq7c614MZEguTeZq/0nqvcxc3woO1z51ukg4O7/k3Tv2i//JI9V3FEtblDjnaFgd2n0jvX9/bkm0r025opPA8KEEm+gvGZUauGUHm/l44Vh6cRkH/D9l9nRV+wyF07Y2IhDk2ST0VxF+PAeaz7Ey/VZx41AP6oUraJoMkCKw7zfyRk7NoV71cLc+6Jc85XgKp/CWO+UNLIT6Gfxyl9RZ+eMeVUQQOqGUoW9PX8x7Cf5gWj7fXHPYVjSoM81ItNYF5h7u+hN5w76HTRa9gYvSxrjDOuepn3cyY6USeW1B1OHA/Ozl9vTayFpJGouGf0u2bfFXBkDXFntVfOb56oXDIEcvOq4ay+c+3DcS29hgfenur6uKMIh2pOijSDa6Ik+6Z7pP2GH3YGAeN984gm/ExRfMCjOZsbmI9WpgCNBF88Ru/JV3aVf5NASZJoR8sAXEj0zp1KQaXN6fxBfQH3gE8wtot7gFZk4RH5eCzWqER+grdp+zOrj3RjWj8OxNz8drizHDEz237y+dn6ZjkfRWuoIZAcekJ/R9R/+buOVFBtdFHkBdpUz+sTcNJ2X336tEUFYX1xBxF869+t0ZC4TZZJffJ6Bb1MycxDuxn/E3Um4ba0j2vT7O43aNgThIPHBbo=
+  on:
+    distributions: sdist bdist_wheel
+    repo: gopinath-langote/1build
+    branch: test-deployment
+  server: https://test.pypi.org/legacy/
+  skip_existing: true
